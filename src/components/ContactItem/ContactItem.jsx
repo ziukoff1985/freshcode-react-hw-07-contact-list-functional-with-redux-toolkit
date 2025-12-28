@@ -11,7 +11,9 @@ import styles from './ContactItem.module.css';
 function ContactItem({ contact }) {
     const dispatch = useDispatch();
 
-    const contactForEdit = useSelector((state) => state.contactForEdit);
+    const contactForEdit = useSelector(
+        (state) => state.contactsList.contactForEdit
+    );
 
     // async function onContactDelete() {
     //     try {
