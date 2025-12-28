@@ -1,4 +1,5 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
+
 import { contactsState } from '../../model/initialStates';
 import { EMPTY_CONTACT, CONTACTS_SLICE_NAME } from '../../constants/constants';
 import api from '../../api/contactsService';
@@ -76,8 +77,8 @@ export const updateContact = createAsyncThunk(
 );
 
 const setError = (state, action) => {
-    state.error = action.payload;
     state.isPending = false;
+    state.error = action.payload;
 };
 
 const setIsPending = (state) => {
@@ -112,7 +113,7 @@ const contactsSlise = createSlice({
                 (contact) => contact.id !== action.payload
             );
             state.contactForEdit =
-                action.payload === state.contactForEdit.id
+                state.contactForEdit.id === action.payload
                     ? EMPTY_CONTACT
                     : state.contactForEdit;
         });

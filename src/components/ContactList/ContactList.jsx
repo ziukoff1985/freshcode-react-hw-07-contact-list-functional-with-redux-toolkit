@@ -1,7 +1,6 @@
 import { useSelector, useDispatch } from 'react-redux';
 import { useEffect } from 'react';
 
-// import api from '../../api/contactsService';
 import { EMPTY_CONTACT } from '../../constants/constants';
 import {
     getContacts,
@@ -19,18 +18,6 @@ function ContactList() {
     function onAddNewContact() {
         dispatch(setContactForEdit(EMPTY_CONTACT));
     }
-
-    // useEffect(() => {
-    //     async function fetchContacts() {
-    //         try {
-    //             const { data } = await api.get('/');
-    //             dispatch(getContacts(data ?? []));
-    //         } catch (error) {
-    //             console.log(error.message);
-    //         }
-    //     }
-    //     fetchContacts();
-    // }, [dispatch]);
 
     useEffect(() => {
         dispatch(getContacts());

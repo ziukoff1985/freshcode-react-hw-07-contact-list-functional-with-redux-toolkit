@@ -1,14 +1,11 @@
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
-// import api from '../../api/contactsService';
 import {
     createContact,
     updateContact,
     deleteContact,
-    /* setContactForEdit */
 } from '../../store/slices/contactsSlice';
-// import { EMPTY_CONTACT } from '../../constants/constants';
 
 import styles from './ContactForm.module.css';
 
@@ -25,30 +22,9 @@ function ContactForm() {
         setContactData(contactForEdit);
     }, [contactForEdit]);
 
-    // async function onAddNewContact() {
-    //     try {
-    //         const { data } = await api.post('/', contactData);
-    //         dispatch(createContact(data));
-    //         setContactData(EMPTY_CONTACT);
-    //     } catch (error) {
-    //         console.log(error.message);
-    //     }
-    // }
-
     const onAddNewContact = () => {
         dispatch(createContact(contactData));
     };
-
-    // async function onEditOldContact() {
-    //     try {
-    //         const { data } = await api.put(`/${contactData.id}`, contactData);
-    //         dispatch(updateContact(data));
-    //         dispatch(setContactForEdit(data));
-    //         setContactData(data);
-    //     } catch (error) {
-    //         console.log(error.message);
-    //     }
-    // }
 
     const onEditOldContact = () => {
         dispatch(updateContact(contactData));
@@ -62,15 +38,6 @@ function ContactForm() {
             onEditOldContact();
         }
     }
-
-    // async function onContactDelete() {
-    //     try {
-    //         await api.delete(`/${contactData.id}`);
-    //         dispatch(deleteContact(contactData.id));
-    //     } catch (error) {
-    //         console.log(error.message);
-    //     }
-    // }
 
     const onContactDelete = () => {
         dispatch(deleteContact(contactData.id));
