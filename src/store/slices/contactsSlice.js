@@ -86,7 +86,7 @@ const setIsPending = (state) => {
     state.error = null;
 };
 
-const contactsSlise = createSlice({
+const contactsSlice = createSlice({
     name: CONTACTS_SLICE_NAME,
     initialState,
     reducers: {
@@ -137,6 +137,6 @@ const contactsSlise = createSlice({
     },
 });
 
-const { reducer, actions } = contactsSlise;
+const { reducer, actions } = contactsSlice;
 export const { setContactForEdit } = actions;
 export default reducer;
