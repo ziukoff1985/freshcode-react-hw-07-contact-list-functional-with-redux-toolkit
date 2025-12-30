@@ -138,5 +138,9 @@ const contactsSlice = createSlice({
 });
 
 const { reducer, actions } = contactsSlice;
+
+// експортуємо тільки СИНХРОННІ функції (з властивості reducers в createSlice)
 export const { setContactForEdit } = actions;
+
+// цей reducer буде використовуватися в store -> configureStore
 export default reducer;
